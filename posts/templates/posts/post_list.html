@@ -1,0 +1,14 @@
+<!Doctype html>
+<html lage = "en"
+<head>
+    <meta chrset="UTF-8"
+    <title>posts</title>
+</head>
+<body>
+    <u1>
+    {% for p in posts %}
+        <li>{{p.pk}} - {{p.title}}</li>
+    {% endfor %}
+    </u1>
+</body>
+</html>
