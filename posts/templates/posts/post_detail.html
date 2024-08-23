@@ -9,5 +9,14 @@
     <h1>{{  post.title  }}</h1>
     <p>{{   post.text   }}</p>
 
+    <u1>
+        {% for c in comments %}
+            <li> {{c.text}} - {{c.created_time}}</li>
+        {% endfor %}
+    </u1>
+
+
+    <a href="/posts/"> BACK TO POSTS</a>
+
 </body>
 </html>

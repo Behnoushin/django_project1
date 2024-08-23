@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Post
+from .models import Post , Comment
 
 def index (request):
     #body
@@ -14,7 +14,8 @@ def post_list(request):
     context ={'posts' : posts}
     return render(request , 'posts/post_list.html', context = context )
 
-def post_detail(request , post_id):
-    posts = Post.objects.get(pk = post_id)
-    context ={'posts' : posts}
-    return render(request , 'post_detail.html', context = context )
+def post_detail(request, post_id):
+    post = Post.objects.get(pk = post_id)
+    comments = Comment.objects.filter(post=post)
+    context ={'post' : post , 'comments':comments}
+    return render(request , 'posts/post_detail.html', context = context )

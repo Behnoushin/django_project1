@@ -2,12 +2,12 @@
 <html lage = "en"
 <head>
     <meta chrset="UTF-8"
-    <title>posts</title>
+    <title> My Weblog</title>
 </head>
 <body>
     <u1>
     {% for p in posts %}
-        <li>{{p.pk}} - {{p.title}}</li>
+        <li><a href="/posts/{{p.pk}}">{{p.pk}} - {{p.title}}</a></li>
     {% endfor %}
     </u1>
 </body>

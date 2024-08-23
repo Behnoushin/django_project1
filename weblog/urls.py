@@ -26,6 +26,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("index/", index),
     path("home/", home),
-    path("post/", post_list , name="post_list"),
-    path("posts/<int;post_id", post_detail, name="post_detail"),
+    path("posts/", post_list),
+    path("posts/<int:post_id>", post_detail),
 ]
