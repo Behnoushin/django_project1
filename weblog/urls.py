@@ -19,13 +19,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from posts.views import index, home , post_list, post_detail
+from posts.views import index, home , post_list, post_detail , post_create , PostList , PostDetail
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("index/", index),
     path("home/", home),
-    path("posts/", post_list),
-    path("posts/<int:post_id>", post_detail),
+    #path("posts/", post_list),
+    path("posts/", PostList.as_view()),
+    path("posts/create/", post_create),
+    #path("posts/<int:post_id>", post_detail),
+    path("posts/<int:pk>", PostDetail.as_view()),
 ]
