@@ -5,12 +5,19 @@ from django.http import HttpResponse,HttpResponseRedirect,HttpResponseNotFound
 from .models import Post , Comment
 from .forms import PostForm
 from django.views import generic
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
-
+@api_view(["GET","post"])
 def index (request):
     #body
-    return HttpResponse('<h1> Welcome to Django </h1>')
-
+    #return HttpResponse('<h1> Welcome to Django </h1>')
+    #print (request.data)
+    try:
+        p = Post.objects.get(pk = 100)
+    except Post.DoesNotExist:
+        return Response ({'detail': ' Post not exits'})
+    return Response ({'name':'behi'})
 
 def home (request):
     return HttpResponse('<h3> Welcome to my blog </h3>')
